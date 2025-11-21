@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subject Specific - APP</title>
+
+    <!-- Professional Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: "Poppins", Arial, sans-serif; /* Poppins as primary */
+        background: #f4f6f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 520px;
+        padding: 20px;
+      }
+
+      .form-box {
+        background: #ffffff;
+        padding: 35px;
+        border-radius: 14px;
+        box-shadow: 0 4px 22px rgba(0, 0, 0, 0.12);
+        width: 100%;
+      }
+
+      h2 {
+        text-align: center;
+        color: #003366;
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      p {
+        text-align: center;
+        color: #555;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+        margin-top: 15px;
+        font-size: 15px;
+        color: #333;
+      }
+
+      select {
+        width: 100%;
+        padding: 14px;
+        border: 1px solid #cfcfcf;
+        border-radius: 10px;
+        font-size: 16px;
+        outline: none;
+        background: #fafafa;
+        transition: 0.2s;
+      }
+
+      select:focus {
+        border-color: #28a745;
+        background: #fff;
+      }
+
+      button {
+        margin-top: 25px;
+        width: 100%;
+        padding: 14px;
+        background: #28a745;
+        border: none;
+        color: white;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      button:hover {
+        background: #218838;
+      }
+
+      .footer {
+        margin-top: 20px;
+        background: #ffffff;
+        padding: 12px 0;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        text-align: center;
+        font-size: 14px;
+        color: #555;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="form-box">
+        <h2>SS-APP Subject App</h2>
+        <p>Select Year and Subject</p>
+        <label>Select Year</label>
+        <select id="yearSelect">
+          <option value="">-- Select Year --</option>
+          <option value="1">Year 1</option>
+          <option value="2">Year 2</option>
+        </select>
+
+        <label>Select Subject</label>
+        <select id="subjectSelect">
+          <option value="">-- Select Subject --</option>
+        </select>
+
+        <button onclick="openSubject()">Open App</button>
+      </div>
+
+      <div class="footer">&copy; 2025 Eric Anane. All rights reserved.</div>
+    </div>
+
+    <script>
+      /* ----------------------------
+       SUBJECT LIST FOR YEAR 1
+    -----------------------------*/
+      const year1Subjects = {
+        ICT: "https://www.playlab.ai/project/cmd952nfd05sdju0uns2559uz",
+        Computing: "https://www.playlab.ai/project/cmd9462xe05urjq0u38blwlcq",
+        "English Language":
+          "https://www.playlab.ai/project/cmdxx258702r9os0ukf1zoqke",
+        "Social Studies":
+          "https://www.playlab.ai/project/cmd95sy3u06qzgn0uww395d6c",
+        Physics: "https://www.playlab.ai/project/cmd95kequ08evji0udoma8669",
+        Biology: "https://www.playlab.ai/project/cmd93v07f06h5ji0uae4zk9lj",
+        Chemistry: "https://www.playlab.ai/project/cmd940t7h06ujji0ubvswrck1",
+        Mathematics: "https://www.playlab.ai/project/cmd959ml706q6k60u7e66i89u",
+        "Add Mathematics":
+          "https://www.playlab.ai/project/cmd92w06l04rzh10uj4rc3pwv",
+        "Intervention Mathematics":
+          "https://www.playlab.ai/project/cmfocc5ql0hasm40uqjmty9d9",
+        "Agricultural Science":
+          "https://www.playlab.ai/project/cmd94ee7j05skgn0uk2rvfvyg",
+        "General Science":
+          "https://www.playlab.ai/project/cmd94ugn006q9jq0uu4ntg6y1",
+        "Food and Nutrition":
+          "https://www.playlab.ai/project/cmdw9c1rr2i6jm60utaylrnnc",
+        "Management in Living":
+          "https://www.playlab.ai/project/cmekev1070atdll0udetpyfqp",
+        "Clothing and Textiles":
+          "https://www.playlab.ai/project/cmdw978jx0k83mg0uij7zjef3",
+        "Christian RS":
+          "https://www.playlab.ai/project/cmdw9ntmi2h2and0ug3r5stay",
+        "Islamic RS":
+          "https://www.playlab.ai/project/cmdw9yhyd2jldno0viwed8qjo",
+        RME: "https://www.playlab.ai/project/cmd95mhu107zojq0uuzuj21xi",
+        French: "https://www.playlab.ai/project/cmdw8k4gv0jowmg0u81kxyyub",
+        Government: "https://www.playlab.ai/project/cmd94ypa5065ogy0uidiugvn2",
+        "Asante Twi":
+          "https://www.playlab.ai/project/cmdxpx04a2zr2nn0uzjoju8b6",
+        Accounting: "https://www.playlab.ai/project/cmekekfba0ab1kr0u69l9m7jf",
+        "Business Management":
+          "https://www.playlab.ai/project/cmekep06f0besnb0uuqf606q5",
+        Geography: "https://www.playlab.ai/project/cmdw907a32iheo50ujv3ecgl9",
+        "PEH Elective":
+          "https://www.playlab.ai/project/cmd95gm2j06kqju0u8bipvxs5",
+        "PEH Core": "https://www.playlab.ai/project/cmd95elao07kmjq0u7tgx043y",
+        "Art and Design Studio":
+          "https://www.playlab.ai/project/cmd93pozj058tk60u1vi7j5n8",
+        History: "https://www.playlab.ai/project/cmd950t2e05e4ix0u7vezzc72",
+        Agriculture: "https://www.playlab.ai/project/cmcuxj5xe0nr1m30ufs7z9k4n",
+        Economics: "https://www.playlab.ai/project/cmd94ee7j05skgn0uk2rvfvyg",
+        "Art and Design Foundation":
+          "https://www.playlab.ai/project/cmd93hdgx04v9k60urun1snzm",
+        "Applied Tech":
+          "https://www.playlab.ai/project/cmd9384ox05zfji0u5hsjvka9",
+        "Literature in English":
+          "https://www.playlab.ai/project/cmd954psk065tju0uwu65jc6i",
+        Music: "https://www.playlab.ai/project/cmd95bopy05rles0ukg4jo2p5",
+        "Design and Comm Tech":
+          "https://www.playlab.ai/project/cmd94caqa07a5ji0uyg6tvivz",
+      };
+
+      // year2Subjects.js
+      const year2Subjects = {
+        ICT: "https://www.playlab.ai/project/cmekgp6rq0bjkp20u76nao8s4",
+        Computing: "https://www.playlab.ai/project/cme6g8b040bs7m50u2fe3el2q",
+        "English Language":
+          "https://www.playlab.ai/project/cme6glvhl0gvgm30uccc5uu7j",
+        "Asante Twi":
+          "https://www.playlab.ai/project/cmdxpx04a2zr2nn0uzjoju8b6",
+        "Social Studies":
+          "https://www.playlab.ai/project/cmekhi7l30cbsp20ulf2a5p5w",
+        Biology: "https://www.playlab.ai/project/cme6fjssk0bbom50u3bk6xwpt",
+        Chemistry: "https://www.playlab.ai/project/cme6g5xey0aakk90u6r8olibz",
+        Physics: "https://www.playlab.ai/project/cme6g5xey0aakk90u6r8olibz",
+        "Food and Nutrition":
+          "https://www.playlab.ai/project/cme6havtb09ypnl0u463nznvq",
+        "Management in Living":
+          "https://www.playlab.ai/project/cme6hcu7o0i1rm30udu4jxxlt",
+        "Clothing and Textiles":
+          "https://www.playlab.ai/project/cme6h94e50apwjd0ucc7wjk10",
+        Mathematics: "https://www.playlab.ai/project/cmekh06gb0c0ekr0u8dflebla",
+        "Additional Mathematics":
+          "https://www.playlab.ai/project/cme6fmsbj0fbtnk0uz002inv9",
+
+        "Agricultural Science":
+          "https://www.playlab.ai/project/cme6ekrbj0fjxm30uhacwpg5z",
+        Agriculture: "https://www.playlab.ai/project/cme6eo5we0fwvm30upgptn669",
+      };
+
+      document
+        .getElementById("yearSelect")
+        .addEventListener("change", function () {
+          const year = this.value;
+          const subjectSelect = document.getElementById("subjectSelect");
+          subjectSelect.innerHTML =
+            '<option value="">-- Select Subject --</option>';
+          const subjects = year === "1" ? year1Subjects : year2Subjects;
+          for (let subject in subjects) {
+            const opt = document.createElement("option");
+            opt.value = subjects[subject];
+            opt.textContent = subject;
+            subjectSelect.appendChild(opt);
+          }
+        });
+
+      function openSubject() {
+        const url = document.getElementById("subjectSelect").value;
+        if (!url) {
+          alert("Please select a subject.");
+          return;
+        }
+        window.open(url, "_blank");
+      }
+    </script>
+  </body>
+</html>
